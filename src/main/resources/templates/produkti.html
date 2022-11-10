@@ -37,9 +37,9 @@
             <a href="/">
                 <div class="w3-quarter w3-center">
 
-                    <h1>${produkts.nosaukums}</h1>
-                    <h2>${produkts.cena}</h2>
-                    <img th:src="@{${'https://storage.cloud.google.com/rtu-projekts-produkti.appspot.com/' + produkts.filename}}" width="120"/>
+                    <h1 th:text="${produkts.nosaukums}"></h1>
+                    <h2 th:text="${produkts.cena}"></h2>
+                    <img th:src="@{${'https://storage.cloud.google.com/rtu-projekts-produkti.appspot.com/'} + ${produkts.filename}}" width="120"/>
 
                 </div>
             </a>
