@@ -32,49 +32,29 @@
 <div class="body">
 
     <div class="w3-row-padding w3-padding-16 w3-center">
-        <a href="http://google.com">
 
-        </a>
-        <div class="w3-quarter" onclick="">
-            <img src="/w3images/salmon.jpg" alt="Salmon" style="width:100%">
-            <h3>Dzērieni</h3>
-            <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-        </div>
-        <div class="w3-quarter">
-            <img src="/w3images/sandwich.jpg" alt="Sandwich" style="width:100%">
-            <h3>Saldumi</h3>
-            <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-        </div>
-        <div class="w3-quarter">
-            <img src="/w3images/croissant.jpg" alt="Croissant" style="width:100%">
-            <h3>Saldēti ēdieni</h3>
-            <p>Lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-        </div>
-    </div>
-
-
-    <tr th:each="veikals: ${veikaluSaraksts}">
-
-        <a href="/">
-            <div class="w3-quarter" onclick="">
-                <div th:switch="${veikals.name}">
-                    <div th:case="'Rimi'">
-                        <img src="../static/rimi.jpeg" alt="" style="width:100%">
-                    </div>
-                    <div th:case="'Maxima'">
-                        <img src="../static/maxima.jpeg" alt="" style="width:100%">
-                    </div>
-                    <div th:case="'Lidl'">
-                        <img src="../static/lidl.jpeg" alt="" style="width:100%">
-                    </div>
-                    <div th:case="'Mego'">
-                        <img src="../static/mego.jpeg" alt="${veikals.name}" style="width:100%">
+        <tr th:each="veikals: ${veikaluSaraksts}">
+            <a href="/">
+                <div class="w3-quarter" onclick="">
+                    <div th:switch="${veikals.name}">
+                        <div th:case="'Rimi'">
+                            <img src="https://storage.cloud.google.com/rtu-projekts-produkti.appspot.com/rimi.jpeg" alt="rimi">
+                        </div>
+                        <div th:case="'Maxima'">
+                            <img src="https://storage.cloud.google.com/rtu-projekts-produkti.appspot.com/maxima.jpeg" alt="maxima">
+                        </div>
+                        <div th:case="'Lidl'">
+                            <img src="https://storage.cloud.google.com/rtu-projekts-produkti.appspot.com/lidl.jpeg" alt="lidl">
+                        </div>
+                        <div th:case="'Mego'">
+                            <img src="https://storage.cloud.google.com/rtu-projekts-produkti.appspot.com/mego.jpeg" alt="mego">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </a>
+            </a>
+        </tr>
+    </div>
 
-    </tr>
 
 </div>
 <div class="footer"></div>
