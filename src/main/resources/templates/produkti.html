@@ -29,9 +29,25 @@
     </div>
 </div>
 
-<p>
-    Te buus sarakstrs ar produktiem
-</p>
+<div class="body">
+
+    <div class="w3-row-padding w3-padding-16 w3-center">
+
+        <tr th:each="produkts: ${produkti}">
+            <a href="/">
+                <div class="w3-quarter w3-center">
+
+                    <h1>${produkts.nosaukums}</h1>
+                    <h2>${produkts.cena}</h2>
+                    <img th:src="@{${'https://storage.cloud.google.com/rtu-projekts-produkti.appspot.com/' + produkts.filename}}" width="120"/>
+
+                </div>
+            </a>
+        </tr>
+    </div>
+
+
+</div>
 
 </body>
 </html>

@@ -3,6 +3,7 @@ package com.example.produkti;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -44,8 +45,13 @@ public class HomeController {
     }
 
     @RequestMapping("/produkti")
-    public ModelAndView produkti () {
+    public ModelAndView produkti (@RequestParam("kategorija") String kategorija) {
+
+        String query = "SELECT * FROM produkti WHERE kategorija = " + kategorija;
         ModelAndView modelAndView = new ModelAndView();
+        List<Produkts> produkti = this.jdbcTemplate.query(query, new ProduktuMapper());
+
+        modelAndView.addObject("produkti", produkti);
         modelAndView.setViewName("produkti");
         return modelAndView;
     }

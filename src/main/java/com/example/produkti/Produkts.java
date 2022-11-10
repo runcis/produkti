@@ -2,8 +2,16 @@ package com.example.produkti;
 
 public class Produkts {
 
+    public Produkts(String nosaukums, Double cena, String kategorija, String filename) {
+        this.nosaukums = nosaukums;
+        this.cena = cena;
+        this.kategorija = kategorija;
+        this.filename = filename;
+    }
+
     public String nosaukums;
     public String apraksts;
     public Double cena;
-    public Double kategorija;//augli-un-darzeni,gala-un-zivis,piena-produkti,konditoreja,uzkodas,dzerieni,saldumi,saldeti-edieni
+    public String kategorija;//augli-un-darzeni,gala-un-zivis,piena-produkti,konditoreja,uzkodas,dzerieni,saldumi,saldeti-edieni
+    public String filename;
 }
