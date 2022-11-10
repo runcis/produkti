@@ -29,7 +29,37 @@
         <a href="/parmums" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Par mums</a>
     </div>
 </div>
-<div class="body"></div>
+<div class="body">
+
+
+    <tr th:each="veikals: ${veikaluSaraksts}">
+
+        <!-- First Photo Grid-->
+        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+            <div class="w3-quarter">
+
+                <div th:switch="${veikals.name}">
+                    <div th:case="'Rimi'">
+                        <img src="/static/rimi.jpeg" alt="${veikals.name}" style="width:100%">
+                    </div>
+                    <div th:case="'Maxima'">
+                        <img src="/static/maxima.jpeg" alt="${veikals.name}" style="width:100%">
+                    </div>
+                    <div th:case="'Lidl'">
+                        <img src="/static/lidl.jpeg" alt="${veikals.name}" style="width:100%">
+                    </div>
+                    <div th:case="'Mego'">
+                        <img src="/static/mego.jpeg" alt="${veikals.name}" style="width:100%">
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </div>
+
+    </tr>
+
+</div>
 <div class="footer"></div>
 
 

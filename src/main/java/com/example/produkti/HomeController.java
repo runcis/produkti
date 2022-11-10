@@ -36,7 +36,11 @@ public class HomeController {
     @RequestMapping("/veikali")
     public ModelAndView veikali () {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("veikals", new Veikals("Rimi"));
+
+        List<String> veikaluSaraksts = this.jdbcTemplate.queryForList("SELECT * FROM veikali").stream()
+                .map((m) -> m.values().toString())
+                .collect(Collectors.toList());
+        modelAndView.addObject("veikaluSaraksts", veikaluSaraksts);
         modelAndView.setViewName("veikali");
         return modelAndView;
     }
