@@ -47,9 +47,9 @@ public class HomeController {
     @RequestMapping("/produkti")
     public ModelAndView produkti (@RequestParam("kategorija") String kategorija) {
 
-        String query = "SELECT * FROM produkti WHERE kategorija = " + kategorija;
+        String query = "SELECT * FROM produkti WHERE kategorija = ?";
         ModelAndView modelAndView = new ModelAndView();
-        List<Produkts> produkti = this.jdbcTemplate.query(query, new ProduktuMapper());
+        List<Produkts> produkti = this.jdbcTemplate.query(query, new Object[]{kategorija}, new ProduktuMapper());
 
         modelAndView.addObject("produkti", produkti);
         modelAndView.setViewName("produkti");
