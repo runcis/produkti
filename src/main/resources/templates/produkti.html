@@ -43,8 +43,22 @@
                 'kategorija' : kategorija,
                 'filename' : filename
             }));
+        }
+        function pievienotGrozam3(produkts) {
+            console.log(produkts);
 
-            document.getElementById("demo").innerHTML = "Hello World";
+            console.log(produkts.nosaukums);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/add-grozs", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({
+                produkts
+            }));
+
+
+            console.log("json:");
+            console.log(JSON.stringify({produkts}));
+
         }
     </script>
 </head>
@@ -84,7 +98,14 @@
                 <img th:src="@{${'https://storage.cloud.google.com/rtu-projekts-produkti.appspot.com/'} + ${produkts.filename}}" width="120"/>
                 <h1 th:text="${produkts.nosaukums}"></h1>
                 <h4 th:text="${produkts.cena}+'€'"></h4>
-                <div class="button" th:attr="onclick=|pievienotGrozam('${produkts.nosaukums}', '${produkts.cena}', '${produkts.kategorija}', '${produkts.filename}')|" >Pievienot grozam</div>
+
+                <div class="button" th:onclick="'pievienotGrozam('${produkts.nosaukums}', '${produkts.cena}', '${produkts.kategorija}', '${produkts.filename}')" >Pievienot grozam</div>
+
+                <div class="button" th:onclick="'pievienotGrozam3('${produkts}')" >Pievienot grozam2</div>
+
+                <div class="button" th:produkts="${produkts}" th:onclick="'pievienotGrozam3(this.getAttribute('produkts'))" >Pievienot grozam3</div>
+                <div class="button" th:onclick="'pievienotGrozam3(this.getAttribute('produkts'))" >Pievienot grozam4</div>
+
 
             </div>
 
