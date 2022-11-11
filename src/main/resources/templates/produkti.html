@@ -43,25 +43,26 @@
                 'kategorija' : kategorija,
                 'filename' : filename
             }));
-        }</script>
-    <script>
-        function pievienotGrozam3(produkts) {
-            console.log(produkts);
-
-            console.log(produkts.nosaukums);
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "/add-grozs", true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.send(JSON.stringify({
-                produkts
-            }));
-
-
-            console.log("json:");
-            console.log(JSON.stringify({produkts}));
-
         }
     </script>
+<!--    <script>-->
+<!--        function pievienotGrozam3(produkts) {-->
+<!--            console.log(produkts);-->
+
+<!--            console.log(produkts.nosaukums);-->
+<!--            var xhr = new XMLHttpRequest();-->
+<!--            xhr.open("POST", "/add-grozs", true);-->
+<!--            xhr.setRequestHeader('Content-Type', 'application/json');-->
+<!--            xhr.send(JSON.stringify({-->
+<!--                produkts-->
+<!--            }));-->
+
+
+<!--            console.log("json:");-->
+<!--            console.log(JSON.stringify({produkts}));-->
+
+<!--        }-->
+<!--    </script>-->
 </head>
 <body>
 
