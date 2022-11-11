@@ -19,6 +19,14 @@
             margin: 4px 2px;
             cursor: pointer;
         }
+
+        .button :hover {
+            background-color: #dedede;
+        }
+
+        .button :active {
+            background-color: #cfb6b6;
+        }
     </style>
     <script>
         function pievienotGrozam(nosaukums, cena, kategorija, filename) {
@@ -32,8 +40,6 @@
                 'filename' : filename
             }));
 
-
-            console.log("json:");
             console.log(JSON.stringify({
                 'nosaukums' : nosaukums,
                 'cena' : cena,
