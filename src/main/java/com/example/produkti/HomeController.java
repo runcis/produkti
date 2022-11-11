@@ -81,7 +81,7 @@ public class HomeController {
                 .collect(Collectors.toList());
     }
 
-    @RequestMapping("/add-grozs")
+    @RequestMapping (path= "/add-grozs")
     public void addGrozs (@RequestBody Produkts produkts) {
         grozs.addProdukts(produkts);
 
