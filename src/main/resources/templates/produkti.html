@@ -21,19 +21,28 @@
         }
     </style>
     <script>
-        function pievienotGrozam(produkts) {
-            console.log(produkts);
+        function pievienotGrozam(nosaukums, cenam, kategorija, filename) {
+            console.log(produktaNosaukums);
 
+            console.log(produktaCena);
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "/add-grozs", true);
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.send(JSON.stringify({
-                produkts
+                'nosaukums' : produktaNosaukums,
+                'cena' : cena,
+                'kategorija' : kategorija,
+                'filename' : filename
             }));
 
 
-            console.log(produkts.nosaukums);
-            console.log(JSON.stringify({produkts}));
+            console.log("json:");
+            console.log(JSON.stringify({
+                'nosaukums' : produktaNosaukums,
+                'cena' : cena,
+                'kategorija' : kategorija,
+                'filename' : filename
+            }));
 
             document.getElementById("demo").innerHTML = "Hello World";
         }
@@ -70,31 +79,14 @@
 
         <tr th:each="produkts: ${produkti}">
 
-<!--                <div class="w3-quarter w3-center">-->
+            <div class="w3-quarter w3-center">
 
-<!--                    <form method="post" th:action="@{/add-grozs}" th:object="@{produkts}">-->
-<!--                        <img th:src="@{${'https://storage.cloud.google.com/rtu-projekts-produkti.appspot.com/'} + ${produkts.filename}}" width="120"/>-->
-<!--                        <h1 th:text="${produkts.nosaukums}"></h1>-->
-<!--                        <h4 th:text="${produkts.cena}+'€'"></h4>-->
-<!--                        <button class="button" type="submit">Pievienot grozam</button>-->
-<!--                    </form>-->
-<!--                </div>-->
-
-            <form action="#" th:action="@{/add-grozs}" th:object="${produkts}" method="post">
+                <img th:src="@{${'https://storage.cloud.google.com/rtu-projekts-produkti.appspot.com/'} + ${produkts.filename}}" width="120"/>
                 <h1 th:text="${produkts.nosaukums}"></h1>
-                <h1 th:text="${produkts.cena}"></h1>
-                <button class="button" type="submit">Pievienot grozam</button>
-            </form>
+                <h4 th:text="${produkts.cena}+'€'"></h4>
+                <div class="button" th:attr="onclick=|pievienotGrozam('${produkts.nosaukums}', '${produkts.cena}', '${produkts.kategorija}', '${produkts.filename}')|" >Pievienot grozam</div>
 
-
-<!--            <div class="w3-quarter w3-center">-->
-
-<!--                <img th:src="@{${'https://storage.cloud.google.com/rtu-projekts-produkti.appspot.com/'} + ${produkts.filename}}" width="120"/>-->
-<!--                <h1 th:text="${produkts.nosaukums}"></h1>-->
-<!--                <h4 th:text="${produkts.cena}+'€'"></h4>-->
-<!--                <div class="button" th:attr="onclick=|pievienotGrozam('${produkts}')|" >Pievienot grozam</div>-->
-
-<!--            </div>-->
+            </div>
 
         </tr>
     </div>
