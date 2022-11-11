@@ -21,15 +21,15 @@
         }
     </style>
     <script>
-        function pievienotGrozam(nosaukums, cenam, kategorija, filename) {
-            console.log(produktaNosaukums);
+        function pievienotGrozam(nosaukums, cena, kategorija, filename) {
+            console.log(nosaukums);
 
-            console.log(produktaCena);
+            console.log(cena);
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "/add-grozs", true);
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.send(JSON.stringify({
-                'nosaukums' : produktaNosaukums,
+                'nosaukums' : nosaukums,
                 'cena' : cena,
                 'kategorija' : kategorija,
                 'filename' : filename
@@ -47,7 +47,7 @@
     </script>
     <script>
         function pievienotGrozam3(produkts) {
-            console.log(produkts);
+            console.log(produkts.produkts);
             console.log(JSON.stringify(produkts));
 
             console.log(produkts.nosaukums);
