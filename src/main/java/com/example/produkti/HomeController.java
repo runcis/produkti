@@ -1,10 +1,7 @@
 package com.example.produkti;
 
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.sql.DataSource;
@@ -13,6 +10,8 @@ import java.util.stream.Collectors;
 
 @RestController
 public class HomeController {
+
+    private Grozs grozs = new Grozs();
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -74,4 +73,18 @@ public class HomeController {
         modelAndView.setViewName("parmums");
         return modelAndView;
     }
+
+    @RequestMapping("/grozs")
+    public List<String> grozs () {
+        return grozs.getProdukti().stream()
+                .map((m) -> m.nosaukums)
+                .collect(Collectors.toList());
+    }
+
+    @RequestMapping("/add-grozs")
+    public void addGrozs (@RequestBody Produkts produkts) {
+        grozs.addProdukts(produkts);
+
+    }
+
 }
