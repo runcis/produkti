@@ -6,6 +6,43 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .button {
+            background-color: white;
+            border: 3px solid #e7e7e7;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function pievienotGrozam(nosaukums, cena, kategorija, filename) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/add-grozs", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({
+                'nosaukums' : nosaukums,
+                'cena' : cena,
+                'kategorija' : kategorija,
+                'filename' : filename
+            }));
+
+
+            console.log("json:");
+            console.log(JSON.stringify({
+                'nosaukums' : nosaukums,
+                'cena' : cena,
+                'kategorija' : kategorija,
+                'filename' : filename
+            }));
+        }
+    </script>g
 </head>
 <body>
 
@@ -29,6 +66,7 @@
             </div>
         </div>
         <a href="/parmums" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Par mums</a>
+        <a href="/grozs" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Mans grozs</a>
     </div>
 </div>
 
@@ -50,7 +88,7 @@
                  th:filename="${produkts.filename}"
                  onclick="pievienotGrozam(this.getAttribute('nosaukums'), this.getAttribute('cena'),
                      this.getAttribute('kategorija'), this.getAttribute('filename'));" >
-                Pievienot grozam
+                Noņemt no groza
             </div>
 
 

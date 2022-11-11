@@ -2,9 +2,9 @@ package com.example.produkti;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.annotation.SessionScope;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.sql.DataSource;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,6 +35,7 @@ public class HomeController {
 
     @RequestMapping("/")
     public ModelAndView home () {
+        grozs = new Grozs();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("home");
         return modelAndView;
