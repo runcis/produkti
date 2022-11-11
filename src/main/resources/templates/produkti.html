@@ -101,10 +101,10 @@
                 <h1 th:text="${produkts.nosaukums}"></h1>
                 <h4 th:text="${produkts.cena}+'€'"></h4>
 
-                <div class="button"
-                     th:onclick="'pievienotGrozam('${produkts.nosaukums}', '${produkts.cena}', '${produkts.kategorija}', '${produkts.filename}\');'" >
-                    Pievienot grozam
-                </div>
+<!--                <div class="button"-->
+<!--                     th:onclick="'pievienotGrozam(${produkts.nosaukums}, ${produkts.cena}, ${produkts.kategorija}, ${produkts.filename});'" >-->
+<!--                    Pievienot grozam-->
+<!--                </div>-->
 
                 <div class="button" th:data-name="${produkts}" th:onclick="pievienotGrozam3(this.getAttribute('data-name'))" >Pievienot grozam2</div>
                 <div class="button" th:onclick="pievienotGrozam3(${produkts})" >Pievienot grozam3</div>
