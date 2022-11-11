@@ -75,15 +75,16 @@ public class HomeController {
     }
 
     @RequestMapping("/grozs")
-    public List<String> grozs () {
-        return grozs.getProdukti().stream()
-                .map((m) -> m.nosaukums)
-                .collect(Collectors.toList());
+    public ModelAndView grozs () {
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("produkti", grozs.getProdukti());
+        modelAndView.setViewName("grozs");
+        return modelAndView;
     }
 
     @RequestMapping (path= "/add-grozs")
     public void addGrozs(@RequestBody Produkts produkts) {
-        System.out.println(produkts);
         grozs.addProdukts(produkts);
     }
 

@@ -31,5 +31,33 @@
         <a href="/parmums" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Par mums</a>
     </div>
 </div>
+
+
+<div class="w3-row-padding w3-padding-16 w3-center" style="max-width:1200px;margin-top:100px">
+
+    <tr th:each="produkts: ${produkti}">
+
+        <div class="w3-quarter w3-center">
+
+            <img th:src="@{${'https://storage.cloud.google.com/rtu-projekts-produkti.appspot.com/'} + ${produkts.filename}}" width="120"/>
+            <h1 th:text="${produkts.nosaukums}"></h1>
+            <h4 th:text="${produkts.cena}+'€'"></h4>
+
+            <div class="button"
+                 th:nosaukums="${produkts.nosaukums}"
+                 th:cena="${produkts.cena}"
+                 th:kategorija="${produkts.kategorija}"
+                 th:filename="${produkts.filename}"
+                 onclick="pievienotGrozam(this.getAttribute('nosaukums'), this.getAttribute('cena'),
+                     this.getAttribute('kategorija'), this.getAttribute('filename'));" >
+                Pievienot grozam
+            </div>
+
+
+        </div>
+
+    </tr>
+</div>
+
 </body>
 </html>
