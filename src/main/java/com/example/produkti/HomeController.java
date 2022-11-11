@@ -82,9 +82,9 @@ public class HomeController {
     }
 
     @RequestMapping (path= "/add-grozs")
-    public void addGrozs (@RequestBody Produkts produkts) {
+    public void addGrozs(@RequestBody Produkts produkts) {
+        System.out.println(produkts);
         grozs.addProdukts(produkts);
-
     }
 
 }

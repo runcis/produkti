@@ -1,9 +1,11 @@
 package com.example.produkti;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Grozs {
     public Grozs() {
+        this.produkti = new ArrayList<Produkts>() {};
     }
 
     public List<Produkts> getProdukti() {
