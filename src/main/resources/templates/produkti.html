@@ -17,12 +17,14 @@
         <div class="w3-dropdown-hover w3-hide-small">
             <button class="w3-padding-large w3-button" title="More">Produkti <i class="fa fa-caret-down"></i></button>
             <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                <a href="#" class="w3-bar-item w3-button">Augļi un dārzeņi</a>
-                <a href="#" class="w3-bar-item w3-button">Gaļa un zivis</a>
-                <a href="#" class="w3-bar-item w3-button">Piena produkti</a>
-                <a href="#" class="w3-bar-item w3-button">Konditoreja</a>
-                <a href="#" class="w3-bar-item w3-button">Uzkodas</a>
-                <a href="#" class="w3-bar-item w3-button">Dzērieni</a>
+                <a href="/produkti?kategorija=augli-un-darzeni" class="w3-bar-item w3-button">Augļi un dārzeņi</a>
+                <a href="/produkti?kategorija=gala-un-zivis" class="w3-bar-item w3-button">Gaļa un zivis</a>
+                <a href="/produkti?kategorija=piena-produkti" class="w3-bar-item w3-button">Piena produkti</a>
+                <a href="/produkti?kategorija=konditoreja" class="w3-bar-item w3-button">Konditoreja</a>
+                <a href="/produkti?kategorija=uzkodas" class="w3-bar-item w3-button">Uzkodas</a>
+                <a href="/produkti?kategorija=dzerieni" class="w3-bar-item w3-button">Dzērieni</a>
+                <a href="/produkti?kategorija=saldumi" class="w3-bar-item w3-button">Saldumi</a>
+                <a href="/produkti?kategorija=saldeti-edieni" class="w3-bar-item w3-button">Saldēti ēdieni</a>
             </div>
         </div>
         <a href="/parmums" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Par mums</a>
@@ -31,15 +33,15 @@
 
 <div class="body">
 
-    <div class="w3-row-padding w3-padding-16 w3-center">
+    <div class="w3-row-padding w3-padding-16 w3-center" style="max-width:1200px;margin-top:100px">
 
         <tr th:each="produkts: ${produkti}">
             <a href="/">
                 <div class="w3-quarter w3-center">
 
-                    <h1 th:text="${produkts.nosaukums}"></h1>
-                    <h2 th:text="${produkts.cena}"></h2>
                     <img th:src="@{${'https://storage.cloud.google.com/rtu-projekts-produkti.appspot.com/'} + ${produkts.filename}}" width="120"/>
+                    <h1 th:text="${produkts.nosaukums}"></h1>
+                    <h2 th:text="${produkts.cena}">€</h2>
 
                 </div>
             </a>
