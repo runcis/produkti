@@ -9,6 +9,38 @@ public class Produkts {
         this.filename = filename;
     }
 
+    public String getNosaukums() {
+        return nosaukums;
+    }
+
+    public void setNosaukums(String nosaukums) {
+        this.nosaukums = nosaukums;
+    }
+
+    public Double getCena() {
+        return cena;
+    }
+
+    public void setCena(Double cena) {
+        this.cena = cena;
+    }
+
+    public String getKategorija() {
+        return kategorija;
+    }
+
+    public void setKategorija(String kategorija) {
+        this.kategorija = kategorija;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
     public String nosaukums;
     public String apraksts;
     public Double cena;
