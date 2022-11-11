@@ -80,15 +80,21 @@
 <!--                    </form>-->
 <!--                </div>-->
 
-
-            <div class="w3-quarter w3-center">
-
-                <img th:src="@{${'https://storage.cloud.google.com/rtu-projekts-produkti.appspot.com/'} + ${produkts.filename}}" width="120"/>
+            <form action="#" th:action="@{/add-grozs}" th:object="${produkts}" method="post">
                 <h1 th:text="${produkts.nosaukums}"></h1>
-                <h4 th:text="${produkts.cena}+'€'"></h4>
-                <div class="button" th:attr="onclick=|pievienotGrozam('${produkts}')|" >Pievienot grozam</div>
+                <h1 th:text="${produkts.cena}"></h1>
+                <button class="button" type="submit">Pievienot grozam</button>
+            </form>
 
-            </div>
+
+<!--            <div class="w3-quarter w3-center">-->
+
+<!--                <img th:src="@{${'https://storage.cloud.google.com/rtu-projekts-produkti.appspot.com/'} + ${produkts.filename}}" width="120"/>-->
+<!--                <h1 th:text="${produkts.nosaukums}"></h1>-->
+<!--                <h4 th:text="${produkts.cena}+'€'"></h4>-->
+<!--                <div class="button" th:attr="onclick=|pievienotGrozam('${produkts}')|" >Pievienot grozam</div>-->
+
+<!--            </div>-->
 
         </tr>
     </div>
